@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="4.0" client="site" method="upgrade">
+    <name>CPS Bowling Calendar</name>
+    <author>Corner Pin Standings</author>
+    <creationDate>October 2025</creationDate>
+    <copyright>Copyright (C) 2025</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>tyson@cornerpins.com.au</authorEmail>
+    <version>2.0.0</version>
+    <description>Bowling tournament calendar with real-time Google Calendar integration</description>
+    
+    <files>
+        <filename module="mod_cps_calendar">mod_cps_calendar.php</filename>
+        <filename>helper.php</filename>
+        <folder>tmpl</folder>
+    </files>
+    
+    <media destination="mod_cps_calendar" folder="media">
+        <folder>css</folder>
+        <folder>js</folder>
+        <folder>images</folder>
+    </media>
+    
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="api_endpoint"
+                    type="text"
+                    label="API Endpoint URL"
+                    description="Full URL to the API (e.g., https://cornerpins.com.au/api)"
+                    default="https://cornerpins.com.au/api"
+                    required="true"
+                    size="60"
+                />
+                
+                <field
+                    name="cache_duration"
+                    type="number"
+                    label="Cache Duration (seconds)"
+                    description="How long to cache calendar data (300 = 5 minutes)"
+                    default="300"
+                    min="60"
+                    max="3600"
+                />
+                
+                <field
+                    name="events_limit"
+                    type="number"
+                    label="Events to Display"
+                    description="Number of events to show (0 = all)"
+                    default="50"
+                    min="0"
+                    max="500"
+                />
+            </fieldset>
+            
+            <fieldset name="advanced">
+                <field
+                    name="moduleclass_sfx"
+                    type="textarea"
+                    label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+                    rows="3"
+                />
+            </fieldset>
+        </fields>
+    </config>
+</extension>
